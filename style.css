@@ -26,7 +26,7 @@ a {
     width: 100%;
     max-width: 1150px;
     margin: 0 auto;
-    
+    position: relative;
 }
 
 /* Header */
@@ -162,7 +162,7 @@ a {
     flex-direction: column;
     position: absolute;
     top: 228px;
-    right: 200px;
+    right: 20px;
 }
 
 .span-item {
