@@ -29,12 +29,26 @@ a {
     position: relative;
 }
 
+/* Section */
+
+.section__header {
+    max-width: 100%;
+    padding: 100px 0;
+    text-align: center;
+}
+
+.section__title {
+    font-size: 60px;
+    font-weight: 400;
+    color: #000000;
+}
+
+
 /* Header */
 .header {
     width: 100%;
     margin: 70px 0;
 
-    /* position: absolute; */
     top: 0;
     left: 0;
     right: 0;
@@ -77,13 +91,6 @@ a {
 }
 
 /* Hero */
-.hero {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    position: relative;
-
-}
 
 .hero__items {
     padding: 150px 0 110px;
@@ -155,6 +162,20 @@ a {
     color: #000;
 }
 
+.btn-wedo a{
+    margin: 50px 0 0;
+    color: #000000;
+    background-color: #fff;
+    border: #D8D8D8 1px solid;
+
+    transition: color .2s linear, background-color .2s linear;
+}
+
+.btn-wedo a:hover {
+    background-color: #000;
+    color: #fff;
+}
+
 /* Slider */
 
 .slider-items {
@@ -173,7 +194,7 @@ a {
     height: 13px;
     width: 13px;
     margin-top: 13px;
-
+    cursor: pointer;
 }
 
 .span-item:hover {
@@ -183,3 +204,47 @@ a {
 /* #active {
     background-color: #000;
 } */
+
+/* Wedo */
+
+.wedo__item {
+    display: flex;
+    margin-bottom: 100px;
+}
+.wedo__item:last-child {
+    margin-bottom: 0;
+}
+
+.wedo__image {
+    margin-right: 100px;
+}
+
+.wedo__supheader {
+    margin-top: -25px;
+    font-size: 30px;
+    font-weight: 300;
+    color: #000000;
+}
+
+.wedo__header {
+    margin-top: -25px;
+    font-size: 48px;
+    color: #000000;
+}
+
+.wedo__header::after {
+    content: "";
+    display: block;
+    margin: 30px 0;
+    background-color: #000;
+    width: 55px;
+    height: 2px;
+}
+
+.reverse {
+    flex-direction: row-reverse;
+}
+
+.reverse .wedo__image {
+    margin: 0;
+}
