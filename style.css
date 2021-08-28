@@ -1,8 +1,12 @@
+html {
+    font-size: 10px;
+}
+
 body {
     margin: 0;
     font-family: 'Montserrat', sans-serif;
 
-    font-size: 18px;
+    font-size: 1.8rem;
     line-height: 1.6;
     color: #656565;
 }
@@ -33,12 +37,12 @@ a {
 
 .section__header {
     max-width: 100%;
-    padding: 100px 0;
+    padding: 10rem 0;
     text-align: center;
 }
 
 .section__title {
-    font-size: 60px;
+    font-size: 6rem;
     font-weight: 400;
     color: #000000;
 }
@@ -47,7 +51,7 @@ a {
 /* Header */
 .header {
     width: 100%;
-    margin: 70px 0;
+    margin: 7rem 0;
 
     top: 0;
     left: 0;
@@ -65,21 +69,21 @@ a {
 .header__logo a{
     font-family: 'Montserrat', sans-serif;
     font-weight: 800;
-    font-size: 30px;
+    font-size: 3rem;
     color: #000000;
-    letter-spacing: -1px;
+    letter-spacing: -0.1rem;
 }
 
 /* Navigation */
 .header__nav {
-    font-size: 18px;
+    font-size: 1.8rem;
 }
 
 
 .nav__link {
     display: inline-block;
     vertical-align: top;
-    margin: 0 15px;
+    margin: 0 1.5rem;
 
     color: #989898;
 
@@ -93,7 +97,7 @@ a {
 /* Hero */
 
 .hero__items {
-    padding: 150px 0 110px;
+    padding: 15rem 0 11rem;
     width: 100%;
     background-color: #ffe1bd;
     display: flex;
@@ -110,34 +114,34 @@ a {
 }
 
 .hero__title {
-    font-size:  48px;
+    font-size:  4.8rem;
     font-weight: 700;
     color: #000;
-    letter-spacing: -1px;
+    letter-spacing: -0.1rem;
 }
 
 .hero__title::after {
     content: "";
     display: block;
-    margin: 30px auto 0;
+    margin: 3rem auto 0;
     background-color: #000;
-    width: 55px;
-    height: 2px;
+    width: 5.5rem;
+    height: 0.2rem;
 }
 
 .hero__subtitle1 {
-    margin: 30px auto 0;
+    margin: 3rem auto 0;
 }
 
 .hero__subtitle1, .hero__subtitle2 {
     color: #000;
     font-weight: 400;
-    font-size: 24px;
+    font-size: 2.4rem;
     line-height: 1.4;
 }
 
 .inner__hero-titles {
-    margin-bottom: 80px;
+    margin-bottom: 8rem;
 }
 
 
@@ -146,13 +150,13 @@ a {
     
     margin: 0 auto;
 
-    max-width: 170px;
-    height: 50px;
+    max-width: 17rem;
+    height: 5rem;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: #000;
-    border-radius: 30px; 
+    border-radius: 3rem; 
     color: #fff; 
 
     transition: color .2s linear, background-color .2s linear;
@@ -163,10 +167,10 @@ a {
 }
 
 .btn-wedo a{
-    margin: 50px 0 0;
+    margin: 5rem 0 0;
     color: #000000;
     background-color: #fff;
-    border: #D8D8D8 1px solid;
+    border: #D8D8D8 0.1rem solid;
 
     transition: color .2s linear, background-color .2s linear;
 }
@@ -182,8 +186,8 @@ a {
     display: flex;
     flex-direction: column;
     position: absolute;
-    top: 228px;
-    right: 20px;
+    top: 22.8rem;
+    right: 2rem;
 }
 
 .span-item {
@@ -191,9 +195,9 @@ a {
     display: block;
     border: black 1px solid;
     border-radius: 50%;
-    height: 13px;
-    width: 13px;
-    margin-top: 13px;
+    height: 1.3rem;
+    width: 1.3rem;
+    margin-top: 1.3rem;
     cursor: pointer;
 }
 
@@ -209,36 +213,36 @@ a {
 
 .wedo__item {
     display: flex;
-    margin-bottom: 100px;
+    margin-bottom: 10rem;
 }
 .wedo__item:last-child {
     margin-bottom: 0;
 }
 
 .wedo__image {
-    margin-right: 100px;
+    margin-right: 10rem;
 }
 
 .wedo__supheader {
-    margin-top: -25px;
-    font-size: 30px;
+    margin-top: -2.5rem;
+    font-size: 3rem;
     font-weight: 300;
     color: #000000;
 }
 
 .wedo__header {
-    margin-top: -25px;
-    font-size: 48px;
+    margin-top: -2.5rem;
+    font-size: 4.8rem;
     color: #000000;
 }
 
 .wedo__header::after {
     content: "";
     display: block;
-    margin: 30px 0;
+    margin: 3rem 0;
     background-color: #000;
-    width: 55px;
-    height: 2px;
+    width: 5.5rem;
+    height: 0.2rem;
 }
 
 .reverse .wedo__image {
@@ -246,5 +250,7 @@ a {
 }
 
 .reverse .wedo__textbox {
-    padding-right: 100px;
+    padding-right: 10rem;
 }
+
+/* Best works */
