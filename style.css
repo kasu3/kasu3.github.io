@@ -7,7 +7,7 @@ body {
     font-family: 'Montserrat', sans-serif;
 
     font-size: 1.8rem;
-    line-height: 1.6;
+
     color: #656565;
 }
 
@@ -28,9 +28,10 @@ a {
 /* Container */
 .container {
     width: 100%;
-    max-width: 1150px;
+    max-width: 117rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
     margin: 0 auto;
-    position: relative;
 }
 
 /* Section */
@@ -43,7 +44,7 @@ a {
 
 .section__title {
     font-size: 6rem;
-    font-weight: 400;
+    font-weight: 300;
     color: #000000;
 }
 
@@ -62,7 +63,7 @@ a {
 .header__inner {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+
 
 }
 
@@ -75,16 +76,14 @@ a {
 }
 
 /* Navigation */
-.header__nav {
-    font-size: 1.8rem;
+.nav {
+    display: flex;
+    height: 100%;
 }
 
-
 .nav__link {
-    display: inline-block;
-    vertical-align: top;
     margin: 0 1.5rem;
-
+    font-size: 1.8rem;
     color: #989898;
 
     transition: color .2s linear;
@@ -95,6 +94,10 @@ a {
 }
 
 /* Hero */
+
+.hero {
+    position: relative;
+}
 
 .hero__items {
     padding: 15rem 0 11rem;
@@ -224,14 +227,14 @@ a {
 }
 
 .wedo__supheader {
-    margin-top: -2.5rem;
+    margin-top: -0.9rem;
     font-size: 3rem;
     font-weight: 300;
     color: #000000;
 }
 
 .wedo__header {
-    margin-top: -2.5rem;
+    margin-top: -0.9rem;
     font-size: 4.8rem;
     color: #000000;
 }
@@ -254,3 +257,72 @@ a {
 }
 
 /* Best works */
+
+.works {
+    display: flex;
+
+}
+
+.works__col {
+    margin-right: 3rem;
+}
+
+.works__col:last-child {
+    margin-right: 0;
+}
+
+
+.works__item {
+    position: relative;
+    background: #ffe1bd;
+    margin-bottom: 3rem;
+}
+
+.works__item:last-child {
+    margin-bottom: 0;
+}
+
+.works__item:hover .works__image {
+    opacity: .1;
+}
+
+.works__item:hover .works__info {
+    opacity: 1;
+}
+
+.works__image {
+    display: block;
+    max-width: 100%;
+    height: auto;
+
+    transition: opacity .2s linear;
+}
+
+.works__info {
+    width: 100%;
+    padding: 0 15px;
+
+    text-align: center;
+    color: #000;
+    opacity: 0;
+
+    position: absolute;
+    top: 50%;
+    left: 0;
+    z-index: 1;
+
+    transform: translate3d(0, -50%, 0);
+    transition: opacity .2s linear;
+}
+
+.works__title {
+    margin-bottom: 0.5rem;
+
+
+    text-transform: uppercase;
+}
+
+.works__text {
+    font-weight: 300;
+    font-style: italic;
+}
