@@ -241,10 +241,10 @@ a {
     height: 2px;
 }
 
-.reverse {
-    flex-direction: row-reverse;
-}
-
 .reverse .wedo__image {
     margin: 0;
+}
+
+.reverse .wedo__textbox {
+    padding-right: 100px;
 }
