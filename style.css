@@ -534,3 +534,20 @@ a {
 }
 
 /* Contact */
+
+/* Footer */
+
+.copyright {
+    text-align: center;
+    padding: 5rem 0;
+}
+
+.footer__header {
+    color: #000;
+    font-weight: 800;
+    margin-bottom: 1.2rem;
+}
+
+.footer__subheader {
+    font-size: 1.4rem;
+}
