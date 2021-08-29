@@ -253,6 +253,44 @@ a {
     background-color:#000;
 }
 
+.slider__left-arrow {
+    content: "";
+    display: block;
+    width: 4rem;
+    height: 4rem;
+    border-top: 3px #000 solid;
+    border-left: 3px #000 solid;
+    position: absolute;
+    cursor: pointer;
+    top: 6rem;
+    left: 0;
+    transform: rotate(-45deg);
+    transition: border-color .1s linear;
+}
+
+.slider__left-arrow:hover {
+    border-color: #fff;
+}
+
+.slider__right-arrow {
+    content: "";
+    display: block;
+    width: 4rem;
+    height: 4rem;
+    border-top: 3px #fff solid;
+    border-left: 3px #fff solid;
+    position: absolute;
+    cursor: pointer;
+    top: 6rem;
+    right: 0;
+    transform: rotate(135deg);
+    transition: border-color .1s linear;
+}
+
+.slider__right-arrow:hover {
+    border-color: #000;
+}
+
 /* #active {
     background-color: #000;
 } */
@@ -372,12 +410,14 @@ a {
 }
 
 /* Team */
-
 .team {
+    position: relative;
+}
+
+.team__inner {
     display:flex;
     align-items: start;
     justify-content: center;
-    position: relative;
 }
 
 .teammate {
@@ -417,7 +457,7 @@ a {
     color: #000;
 }
 
-.team::before {
+/* .team::before {
     content: "";
     display: block;
     width: 4rem;
@@ -425,7 +465,7 @@ a {
     border-top: 3px #000 solid;
     border-left: 3px #000 solid;
     position: absolute;
-
+    cursor: pointer;
     top: 6rem;
     left: 0;
     transform: rotate(-45deg);
@@ -439,9 +479,10 @@ a {
     border-top: 3px #fff solid;
     border-left: 3px #fff solid;
     position: absolute;
-
+    cursor: pointer;
     top: 6rem;
     right: 0;
     transform: rotate(135deg);
-}
+} */
+
 
