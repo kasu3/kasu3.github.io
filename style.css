@@ -5,7 +5,7 @@ html {
 body {
     margin: 0;
     font-family: 'Montserrat', sans-serif;
-
+    letter-spacing: -0.1rem;
     font-size: 1.8rem;
 
     color: #656565;
@@ -46,6 +46,10 @@ a {
     font-size: 6rem;
     font-weight: 300;
     color: #000000;
+}
+
+.team--section {
+    background-color: #ffe1bd;
 }
 
 
@@ -198,9 +202,18 @@ a {
     color: #fff;
 }
 
+.btn-works a{
+    margin: 5rem auto;
+}
+
+.btn-works a:hover {
+    background-color: #ffe1bd;
+    color: #000;
+}
+
 /* Slider */
 
-.slider-items {
+.hero__slider {
     display: flex;
     flex-direction: column;
     position: absolute;
@@ -208,7 +221,13 @@ a {
     right: 2rem;
 }
 
-.span-item {
+.team__slider {
+    display: flex;
+    justify-content: center;
+    padding: 5rem 0 10rem;
+}
+
+.slider-item {
     content: "";
     display: block;
     border: black 1px solid;
@@ -218,8 +237,19 @@ a {
     margin-top: 1.3rem;
     cursor: pointer;
 }
+.slider-item:first-child {
+    margin: 0;
+}
 
-.span-item:hover {
+.team__slider .slider-item {
+    margin: 0 1.3rem 0 0;
+}
+
+.team__slider .slider-item:last-child {
+    margin-right: 0;
+}
+
+.slider-item:hover {
     background-color:#000;
 }
 
@@ -340,3 +370,78 @@ a {
     font-weight: 300;
     font-style: italic;
 }
+
+/* Team */
+
+.team {
+    display:flex;
+    align-items: start;
+    justify-content: center;
+    position: relative;
+}
+
+.teammate {
+    display: flex;
+    flex-direction: column;
+    padding: 0 3.6rem;
+    text-align: center;
+
+}
+
+.teammate__photo {
+    padding-bottom: 2.2rem;
+}
+
+.teammate__photo img{
+    border-radius: 50%;
+}
+
+.teammate__name {
+    width: 23rem;
+    font-size: 4rem;
+    font-weight: 800;
+    color: #000;
+}
+
+.teammate__name::after {
+    content: "";
+    display: block;
+    margin: 2rem auto;
+    background-color: #000;
+    width: 5.5rem;
+    height: 0.2rem;
+}
+
+.teammate__position {
+    font-weight: 400;
+    color: #000;
+}
+
+.team::before {
+    content: "";
+    display: block;
+    width: 4rem;
+    height: 4rem;
+    border-top: 3px #000 solid;
+    border-left: 3px #000 solid;
+    position: absolute;
+
+    top: 6rem;
+    left: 0;
+    transform: rotate(-45deg);
+}
+
+.team::after {
+    content: "";
+    display: block;
+    width: 4rem;
+    height: 4rem;
+    border-top: 3px #fff solid;
+    border-left: 3px #fff solid;
+    position: absolute;
+
+    top: 6rem;
+    right: 0;
+    transform: rotate(135deg);
+}
+
