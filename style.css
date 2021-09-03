@@ -26,6 +26,7 @@ a {
 }
 
 /* Container */
+
 .container {
     width: 100%;
     max-width: 117rem;
@@ -62,6 +63,7 @@ a {
 }
 
 /* Header */
+
 .header {
     width: 100%;
     margin: 7rem 0;
@@ -88,6 +90,7 @@ a {
 }
 
 /* Navigation */
+
 .nav {
     display: flex;
     height: 100%;
@@ -174,12 +177,10 @@ a {
     margin-bottom: 8rem;
 }
 
-
 /* Button */
-.btn a{
-    
-    margin: 0 auto;
 
+.btn a{
+    margin: 0 auto;
     max-width: 17rem;
     height: 5rem;
     display: flex;
@@ -188,7 +189,6 @@ a {
     background-color: #000;
     border-radius: 3rem; 
     color: #fff; 
-
     transition: color .2s linear, background-color .2s linear;
 }
 .btn a:hover {
@@ -217,6 +217,12 @@ a {
 .btn-works a:hover {
     background-color: #ffe1bd;
     color: #000;
+}
+
+.btn-review a {
+    margin: 5rem 0 10rem;
+    color: #000;
+    background-color: #fff;
 }
 
 /* Slider */
@@ -263,8 +269,6 @@ a {
 .slider-item:hover {
     background-color:#000;
 }
-
-
 
 .slider__left-arrow {
     content: "";
@@ -366,7 +370,6 @@ a {
     margin-right: 0;
 }
 
-
 .works__item {
     position: relative;
     background: #ffe1bd;
@@ -423,6 +426,7 @@ a {
 }
 
 /* Team */
+
 .team {
     position: relative;
 }
@@ -535,6 +539,73 @@ a {
 
 /* Contact */
 
+.contact {
+    display: flex;
+}
+
+.contact__inner {
+    display: flex;
+    max-width: 49rem;
+    flex-direction: column;
+    margin-right: 10rem;
+    letter-spacing: 0.01rem;
+}
+
+.adress, 
+.phone, 
+.mail {
+    display: flex;
+    margin-bottom: 5rem;
+}
+
+.adress__icon,
+.phone__icon,
+.mail__icon {
+    display: flex;
+    width: 1.6rem;
+    margin-right: 2rem;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.social__links {
+    font-size: 4rem;
+}
+
+/* Review */
+
+.review {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 49rem;
+}
+
+.review__input-name,
+.review__input-email,
+.review__input-message {
+    padding: 0;
+    color: #fff;
+    font-size: 1.8rem;
+    font-family: 'Montserrat', sans-serif;
+    height: 4rem;
+    background-color: #000;
+    border: 0;
+    border-bottom: 0.1rem solid hsla(120, 100%, 100%, 40%);
+    margin-bottom: 4rem;
+}
+
+.review__input-message {
+    height: 8rem;
+}
+
+.review__input-name::placeholder,
+.review__input-email::placeholder,
+.review__input-message::placeholder {
+    color: #fff;
+    opacity: 0.4;
+} 
+
 /* Footer */
 
 .copyright {
@@ -545,7 +616,7 @@ a {
 .footer__header {
     color: #000;
     font-weight: 800;
-    margin-bottom: 1.2rem;
+    margin-bottom: 1.3rem;
 }
 
 .footer__subheader {
