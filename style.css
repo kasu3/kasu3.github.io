@@ -100,12 +100,31 @@ a {
     margin: 0 1.5rem;
     font-size: 1.8rem;
     color: #989898;
+    position: relative;
 
     transition: color .2s linear;
 }
 
+.nav__link::after {
+    content:"";
+    width: 0;
+    height: 0.2rem;
+    background-color: #000;
+
+    position: absolute;
+    bottom: -1rem;
+    left: 0;
+    z-index: 1;
+
+    transition: width .2s linear;
+}
+
 .nav__link:hover {
     color: #000000;
+}
+
+.nav__link:hover::after {
+    width: 3.7rem;
 }
 
 /* Hero */
@@ -192,7 +211,7 @@ a {
     transition: color .2s linear, background-color .2s linear;
 }
 .btn a:hover {
-    background-color: #fff;
+    background-color: #ffe1bd;
     color: #000;
 }
 
@@ -202,12 +221,12 @@ a {
     background-color: #fff;
     border: #D8D8D8 0.1rem solid;
 
-    transition: color .2s linear, background-color .2s linear;
+    transition: border-color .2s linear;
 }
 
 .btn-wedo a:hover {
-    background-color: #000;
-    color: #fff;
+    background-color: #fff;
+    border-color: #000000;
 }
 
 .btn-works a{
@@ -227,9 +246,7 @@ a {
 }
 
 .btn-review a:hover {
-    color: #fff;
-    background-color: #000;
-    border: 0.1rem #fff solid;
+    background-color: #ffcb93;
 }
 
 /* Slider */
@@ -330,7 +347,18 @@ a {
 }
 
 .wedo__image {
-    margin-right: 10rem;
+    margin-right: 3rem;
+    width: 56rem;
+    height: 56rem;
+}
+
+.wedo__textbox {
+    padding-left: 7rem;
+}
+
+.reverse .wedo__textbox {
+    padding-left: 0;
+    padding-right: 7rem;
 }
 
 .wedo__supheader {
@@ -360,7 +388,7 @@ a {
 }
 
 .reverse .wedo__textbox {
-    margin-right: 10rem;
+    margin-right: 3rem;
 }
 
 /* Best works */
@@ -490,9 +518,7 @@ a {
 
 .clients__item {
     display: flex;
-    flex-wrap: wrap;
     flex-direction: row;
-    flex-basis: 56rem;
     height: 13rem;
     margin-bottom: 8rem;
 }
@@ -575,8 +601,22 @@ a {
     align-items: flex-start;
 }
 
-.social__links {
+.fab {
+    color: #fff;
     font-size: 4rem;
+    transition: color 0.2s linear;
+}
+
+.fab:hover {
+    color: #ffcb93;
+}
+
+.soc__link {
+    margin-right: 2rem;
+}
+
+.soc__link:last-child {
+    margin-right: 0;
 }
 
 /* Review */
@@ -591,7 +631,7 @@ a {
 .review__input-name,
 .review__input-email,
 .review__input-message {
-    padding: 0;
+    padding: 1rem;
     color: #fff;
     font-size: 1.8rem;
     font-family: 'Montserrat', sans-serif;
@@ -628,4 +668,84 @@ a {
 
 .footer__subheader {
     font-size: 1.4rem;
+}
+
+
+@media (max-width: 1200px) {
+
+    html {
+        font-size: 9px;
+    }
+
+    /* Wedo */
+
+    .wedo__image img{
+        width: 56rem;
+        height: auto;
+    }
+
+    /* Clients */
+    .clients__item {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .clients__info,
+    .clients__text {
+        text-align: center;
+        width: 60%;
+        margin: 0;
+        padding: 0;
+    }
+
+    .clients__position {
+        margin-bottom: 1.5rem;
+    }
+
+    .clients__photos {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .clients__photo {
+        width: 40%;
+        text-align: center;
+        margin: 0 0 1rem;
+    }
+
+    .clients__name::after {
+        left: 50%;
+        transform: translate3d(-50%, 0, 0);
+        z-index: 1;
+    }
+}
+
+@media (max-width: 990px) {
+
+    html {
+        font-size: 8px;
+    }
+
+        /* Clients */
+    .clients__photos {
+        padding-top: 4rem;
+    }
+
+}
+
+@media (max-width: 720px) {
+    
+
+    /* Clients */
+    .clients__photo {
+        width: 100%;
+    }
+
+
+}
+
+@media (max-width: 575px) {
+    html {
+        font-size: 7px;
+    }
 }
