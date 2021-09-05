@@ -332,7 +332,7 @@ a {
     border-color: #000;
 }
 
-/* #active {
+/* .slider-item--active {
     background-color: #000;
 } */
 
@@ -340,23 +340,29 @@ a {
 
 .wedo__item {
     display: flex;
+    justify-content: space-between;
     margin-bottom: 10rem;
 }
 .wedo__item:last-child {
     margin-bottom: 0;
 }
 
-.wedo__image {
-    margin-right: 3rem;
-    width: 56rem;
-    height: 56rem;
+.wedo__image,
+.wedo__inner {
+    width: 48.7%;
+
+}
+.wedo__image img{
+    display: block;
+    max-width: 100%;
+    height: auto;
 }
 
 .wedo__textbox {
     padding-left: 7rem;
 }
 
-.reverse .wedo__textbox {
+.wedo__textbox--reverse {
     padding-left: 0;
     padding-right: 7rem;
 }
@@ -383,32 +389,20 @@ a {
     height: 0.2rem;
 }
 
-.reverse .wedo__image {
-    margin: 0;
-}
-
-.reverse .wedo__textbox {
-    margin-right: 3rem;
-}
-
 /* Best works */
 
 .works {
     display: flex;
+    justify-content: space-between;
 }
 
 .works__col {
-    margin-right: 3rem;
+    width: 31.6%;
 }
-
-.works__col:last-child {
-    margin-right: 0;
-}
-
 .works__item {
     position: relative;
     background: #ffe1bd;
-    margin-bottom: 3rem;
+    margin-bottom: 8.24%;
 }
 
 .works__item:last-child {
@@ -468,7 +462,6 @@ a {
 
 .team__inner {
     display:flex;
-    align-items: start;
     justify-content: center;
     margin-bottom: 5rem;
 }
@@ -560,14 +553,18 @@ a {
 
 .clients__photos {
     display: flex;
+    justify-content: space-between;
     margin-bottom: 8rem;
 }
 
 .clients__photo {
-    margin-right: 3rem;
+    width: 23.1%;
 }
-.clients__photo:last-child {
-    margin-right: 0;
+
+.clients__photo img{
+    display: block;
+    width: 100%;
+    height: auto;
 }
 
 /* Contact */
@@ -702,17 +699,6 @@ a {
         margin-bottom: 1.5rem;
     }
 
-    .clients__photos {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    .clients__photo {
-        width: 40%;
-        text-align: center;
-        margin: 0 0 1rem;
-    }
-
     .clients__name::after {
         left: 50%;
         transform: translate3d(-50%, 0, 0);
@@ -735,10 +721,20 @@ a {
 
 @media (max-width: 720px) {
     
+    /* Wedo */
+
+    .wedo__textbox {
+        padding: 0;
+    }
 
     /* Clients */
+    .clients__photos {
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
     .clients__photo {
-        width: 100%;
+        width: 48%;
+        margin-bottom: 1rem;
     }
 
 
@@ -748,4 +744,9 @@ a {
     html {
         font-size: 7px;
     }
+
+    .clients__photo {
+        width: 60%;
+    }
+
 }
