@@ -858,6 +858,28 @@ a {
 
 }
 
+@media (max-width: 425px) {
+    .nav {
+        display: none;
+    }
+
+    /* Clients */
+
+    .clients__info,
+    .clients__text,
+    .clients__photo {
+        width: 80%;
+    }
+    
+
+    /* Contact */
+
+    .contact__inner,
+    .review {
+        width: 80%;
+    }
+}
+
 @media (max-width: 320px) {
     
     /* Works */
@@ -871,18 +893,6 @@ a {
         margin: 0 0 7%;
     }
 
-    /* Clients */
 
-    .clients__info,
-    .clients__text,
-    .clients__photo {
-        width: 80%;
-    }
 
-    /* Contact */
-
-    .contact__inner,
-    .review {
-        width: 80%;
-    }
 }
