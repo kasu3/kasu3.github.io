@@ -538,28 +538,24 @@ a {
     font-size: 4rem;
     font-weight: 800;
     color: #000;
-    position: relative;
+    margin-top: -1.5rem;
 }
 
 .clients__name::after {
     content: "";
     display: block;
-    margin-top: 2rem;
+    margin: 1rem 0 1rem auto;
     background-color: #000;
     width: 5.5rem;
     height: 0.2rem;
-
-    position: absolute;
-    right: 0;
 }
 
 .clients__position {
-    margin-top: 4.2rem;
     color: #000;
 }
 
 .clients__text {
-    padding-right: 7rem;
+    padding-right: 10rem;
     text-align: start;
 }
 
@@ -713,6 +709,12 @@ a {
         padding: 0;
     }
 
+    /* Team */
+
+    .teammate--second {
+        display: none;
+    }
+
     /* Clients */
     .clients {
         display: flex;
@@ -730,6 +732,23 @@ a {
         margin-bottom: 1rem;
     }
 
+    /* Contact */
+
+    .contact {
+        flex-wrap: wrap;
+
+    }
+
+    .contact__inner,
+    .review {
+        width: 60%;
+        padding: 0;
+        margin: 0 auto;
+    }
+
+    .contact__inner {
+        margin-bottom: 10rem;
+    }
 
 }
 
@@ -788,6 +807,10 @@ a {
         justify-content: center;
     }
 
+    .works__col {
+        width: 40%;
+    }
+
     .works__col--first {
         margin-right: 3%;
     }
@@ -796,11 +819,18 @@ a {
         display: none;
     }
 
+    /* Team */
+
+    .teammate--third {
+        display: none;
+    }
+
     /* Clients */
 
     .clients__item {
         flex-wrap: wrap;
         justify-content: center;
+
     }
 
     .clients__info,
@@ -811,10 +841,48 @@ a {
 
     .clients__info {
         margin-bottom: 1rem;
+        text-align: center;
+    }
+
+    .clients__name::after {
+        margin: 1rem auto;
+    }
+
+    .clients__text {
+        text-align: justify;
     }
 
     .clients__photo {
         width: 60%;
     }
 
+}
+
+@media (max-width: 320px) {
+    
+    /* Works */
+
+    .works {
+        flex-wrap: wrap;
+    }
+
+    .works__col {
+        width: 80%;
+        margin: 0 0 7%;
+    }
+
+    /* Clients */
+
+    .clients__info,
+    .clients__text,
+    .clients__photo {
+        width: 80%;
+    }
+
+    /* Contact */
+
+    .contact__inner,
+    .review {
+        width: 80%;
+    }
 }
