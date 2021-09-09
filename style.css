@@ -584,6 +584,7 @@ a {
 }
 
 .teammate__name {
+    margin: 0 auto;
     width: 23rem;
     font-size: 4rem;
     font-weight: 900;

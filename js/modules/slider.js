@@ -1,21 +1,22 @@
-'use strict';
+function slider(){
 
-window.addEventListener('DOMContentLoaded', () => {
+    let slides = document.querySelectorAll('.team__of__three');
 
-    // Slider
-
-    const slides = document.querySelectorAll('.team__of__three'),
-    slider = document.querySelector('.team'),
-    prev = document.querySelector('.slider__left-arrow'),
-    next = document.querySelector('.slider__right-arrow'),
-    slidesWrapper = document.querySelector('.team__wrapper'),
-    slidesField = document.querySelector('.team__inner'),
-    width = window.getComputedStyle(slidesWrapper).width;
-
-    console.log(width);
+    const slider = document.querySelector('.team'),
+          prev = document.querySelector('.slider__left-arrow'),
+          next = document.querySelector('.slider__right-arrow'),
+          slidesWrapper = document.querySelector('.team__wrapper'),
+          slidesField = document.querySelector('.team__inner'),
+          width = window.getComputedStyle(slidesWrapper).width;
 
     let slideIndex = 1;
     let offset = 0;
+
+    const firstClone = slides[0].cloneNode(true),
+          lastClone = slides[slides.length - 1].cloneNode(true);
+
+    firstClone.id = 'first-clone';
+    lastClone.id = 'last-clone';
 
     slidesField.style.width = 100 * slides.length + '%';
     slidesField.style.display = 'flex';
@@ -42,6 +43,7 @@ window.addEventListener('DOMContentLoaded', () => {
     display: flex;
     justify-content: center;
     `;
+
     slider.append(indicators);
 
     for (let i = 0; i < slides.length; i++) {
@@ -58,8 +60,6 @@ window.addEventListener('DOMContentLoaded', () => {
     function deleteNotDigits(str) {
         return +str.replace(/px/, '');
     }
-
-    console.log(deleteNotDigits(width));
 
     next.addEventListener('click', ()=> {
         if(offset == deleteNotDigits(width) * (slides.length - 1)){
@@ -81,39 +81,40 @@ window.addEventListener('DOMContentLoaded', () => {
     });
 
     prev.addEventListener('click', ()=> {
-    if(offset == 0){
-        offset = deleteNotDigits(width) * (slides.length - 1);
-    } else {
-        offset -= deleteNotDigits(width);
-    }
-    console.log(offset);
-    slidesField.style.transform = `translateX(-${offset}px)`;
+        if(offset == 0){
+            offset = deleteNotDigits(width) * (slides.length - 1);
+        } else {
+            offset -= deleteNotDigits(width);
+        }
 
-    
-    if(slideIndex == 1) {
-        slideIndex = slides.length;
-    } else {
-        slideIndex--;
-    }
+        slidesField.style.transform = `translateX(-${offset}px)`;
 
-    dots.forEach(dot => dot.style.backgroundColor = '');
-    dots[slideIndex - 1].style.backgroundColor = '#000';
+        
+        if(slideIndex == 1) {
+            slideIndex = slides.length;
+        } else {
+            slideIndex--;
+        }
+
+        dots.forEach(dot => dot.style.backgroundColor = '');
+        dots[slideIndex - 1].style.backgroundColor = '#000';
     
     });
 
     dots.forEach(dot => {
-    dot.addEventListener('click', (e) => {
-        const slideTo = e.target.getAttribute('data-slide-to');
+        dot.addEventListener('click', (e) => {
+            const slideTo = e.target.getAttribute('data-slide-to');
 
-        slideIndex = slideTo;
-        offset = deleteNotDigits(width) * (slideTo - 1);
+            slideIndex = slideTo;
+            offset = deleteNotDigits(width) * (slideTo - 1);
 
-        slidesField.style.transform = `translateX(-${offset}px)`;
+            slidesField.style.transform = `translateX(-${offset}px)`;
 
-        dots.forEach(dot => dot.style.backgroundColor = '');
-        dots[slideIndex - 1].style.backgroundColor = '#000';
+            dots.forEach(dot => dot.style.backgroundColor = '');
+            dots[slideIndex - 1].style.backgroundColor = '#000';
 
+        });
     });
-    });
+}
 
-});
+export default slider;
