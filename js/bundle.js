@@ -14,7 +14,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 function slider(){
 
-    let slides = document.querySelectorAll('.team__of__three');
+    const getAllSlides = () => document.querySelectorAll('.team__of__three'); 
+    //for getting all sliders before and after cloning
+
+    let slides = getAllSlides();
 
     const slider = document.querySelector('.team'),
           prev = document.querySelector('.slider__left-arrow'),
@@ -24,7 +27,7 @@ function slider(){
           width = window.getComputedStyle(slidesWrapper).width;
 
     let slideIndex = 1;
-    let offset = 0;
+    let offset = deleteNotDigits(width);
 
     const firstClone = slides[0].cloneNode(true),
           lastClone = slides[slides.length - 1].cloneNode(true);
@@ -32,18 +35,24 @@ function slider(){
     firstClone.id = 'first-clone';
     lastClone.id = 'last-clone';
 
-    slidesField.style.width = 100 * slides.length + '%';
-    slidesField.style.display = 'flex';
-    slidesField.style.transition = '0.5s all';
+    slidesField.append(firstClone);
+    slidesField.prepend(lastClone);
 
-    slidesWrapper.style.overflow = 'hidden';
+    slides = getAllSlides();
 
     slides.forEach(slide => {
+
         slide.style.width = width;
     });
 
+    slidesField.style.width = 100 * slides.length + '%';
+    slidesField.style.display = 'flex';
+
+    slidesWrapper.style.overflow = 'hidden';
+
     slider.style.position = 'relative';
 
+    //indicator dots for slider
     const indicators = document.createElement('div'),
         dots = [];
     indicators.classList.add('slider__dots');
@@ -60,59 +69,80 @@ function slider(){
 
     slider.append(indicators);
 
-    for (let i = 0; i < slides.length; i++) {
+    for (let i = 1; i < slides.length-1; i++) {
+
         const dot = document.createElement('span');
-        dot.setAttribute('data-slide-to', i + 1);
+        dot.setAttribute('data-slide-to', i);
         dot.classList.add('slider-item');
-        if (i == 0) {
+        if (i == 1) {
             dot.style.backgroundColor = "#000";
         }
         indicators.append(dot);
         dots.push(dot);
     }
 
+
     function deleteNotDigits(str) {
         return +str.replace(/px/, '');
     }
 
-    next.addEventListener('click', ()=> {
-        if(offset == deleteNotDigits(width) * (slides.length - 1)){
-            offset = 0;
-        } else {
-            offset += deleteNotDigits(width);
-        }
-
-        slidesField.style.transform = `translateX(-${offset}px)`;
-
-        if(slideIndex == slides.length) {
-            slideIndex = 1;
-        } else {
-            slideIndex++;
-        }
-
-        dots.forEach(dot => dot.style.backgroundColor = '');
-        dots[slideIndex - 1].style.backgroundColor = '#000';
-    });
-
-    prev.addEventListener('click', ()=> {
-        if(offset == 0){
-            offset = deleteNotDigits(width) * (slides.length - 1);
-        } else {
-            offset -= deleteNotDigits(width);
-        }
-
-        slidesField.style.transform = `translateX(-${offset}px)`;
-
-        
-        if(slideIndex == 1) {
-            slideIndex = slides.length;
-        } else {
-            slideIndex--;
-        }
-
-        dots.forEach(dot => dot.style.backgroundColor = '');
-        dots[slideIndex - 1].style.backgroundColor = '#000';
+    // const moveToFirstSlide = () => {
+    //     let i = deleteNotDigits(width);
+    //     slidesField.style.transform = `translateX(-${i}px)`;
+    // };
     
+    // moveToFirstSlide();
+
+
+    const moveToNextSlide = () => {  
+        offset += deleteNotDigits(width);
+        slideIndex++;
+
+        slidesField.style.transition = '0.5s all';
+        slidesField.style.transform = `translateX(-${offset}px)`;
+
+        dots.forEach(dot => dot.style.backgroundColor = '');
+        dots[slideIndex - 1].style.backgroundColor = '#000';
+    };
+
+    const moveToPrevSlide = () => {
+        offset -= deleteNotDigits(width);
+        slideIndex--;
+
+        slidesField.style.transition = '0.5s all';
+        slidesField.style.transform = `translateX(-${offset}px)`;
+
+        dots.forEach(dot => dot.style.backgroundColor = '');
+        dots[slideIndex - 1].style.backgroundColor = '#000';
+    };
+
+    next.addEventListener('click', moveToNextSlide);
+    prev.addEventListener('click', moveToPrevSlide);
+
+    slidesField.addEventListener('transitionend', () => {
+        if(slides[slideIndex].id === firstClone.id) {
+            slideIndex = 1;
+            offset = deleteNotDigits(width) * slideIndex;
+
+            dots.forEach(dot => dot.style.backgroundColor = '');
+            dots[slideIndex - 1].style.backgroundColor = '#000';
+
+            slidesField.style.transition = 'none';
+            slidesField.style.transform = `translateX(-${offset}px)`;
+        }
+
+        if(slides[slideIndex].id === lastClone.id) {
+            slideIndex = slides.length - 2;
+            offset = deleteNotDigits(width) * slideIndex;
+
+            dots.forEach(dot => dot.style.backgroundColor = '');
+            dots[slideIndex - 1].style.backgroundColor = '#000';
+
+            slidesField.style.transition = 'none';
+            slidesField.style.transform = `translateX(-${offset}px)`;
+
+        }
+
     });
 
     dots.forEach(dot => {
@@ -120,13 +150,13 @@ function slider(){
             const slideTo = e.target.getAttribute('data-slide-to');
 
             slideIndex = slideTo;
-            offset = deleteNotDigits(width) * (slideTo - 1);
+            offset = deleteNotDigits(width) * (slideIndex);
 
+            slidesField.style.transition = '0.5s all';
             slidesField.style.transform = `translateX(-${offset}px)`;
 
             dots.forEach(dot => dot.style.backgroundColor = '');
             dots[slideIndex - 1].style.backgroundColor = '#000';
-
         });
     });
 }
