@@ -369,6 +369,8 @@ a {
     width: 1.1rem;
     margin-right: 1.3rem;
     cursor: pointer;
+
+    transition: background-color linear 0.5s;
 }
 
 .slider-item:last-child {

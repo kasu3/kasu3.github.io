@@ -72,13 +72,11 @@ function slider(){
         return +str.replace(/px/, '');
     }
 
-    // const moveToFirstSlide = () => {
-    //     let i = deleteNotDigits(width);
-    //     slidesField.style.transform = `translateX(-${i}px)`;
-    // };
+    const moveToFirstSlide = () => {
+        slidesField.style.transform = `translateX(-${offset}px)`;
+    };
     
-    // moveToFirstSlide();
-
+    moveToFirstSlide();
 
     const moveToNextSlide = () => {  
         offset += deleteNotDigits(width);
