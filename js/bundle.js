@@ -41,7 +41,6 @@ function slider(){
     slides = getAllSlides();
 
     slides.forEach(slide => {
-
         slide.style.width = width;
     });
 
@@ -54,19 +53,8 @@ function slider(){
 
     //indicator dots for slider
     const indicators = document.createElement('div'),
-        dots = [];
+          dots = [];
     indicators.classList.add('slider__dots');
-
-    indicators.style.cssText = `
-    position: absolute;
-    right: 0;
-    bottom: 10rem;
-    left: 0;
-    z-index: 15;
-    display: flex;
-    justify-content: center;
-    `;
-
     slider.append(indicators);
 
     for (let i = 1; i < slides.length-1; i++) {
@@ -90,29 +78,35 @@ function slider(){
         slidesField.style.transform = `translateX(-${offset}px)`;
     };
     
-    moveToFirstSlide();
+    moveToFirstSlide(); // to move from clone slide to actual first slide
 
     const moveToNextSlide = () => {  
-        offset += deleteNotDigits(width);
+        if(slideIndex >= slides.length - 1){
+            console.log(slideIndex);
+            return;
+        }
         slideIndex++;
+        console.log(slideIndex);
 
-        slidesField.style.transition = '0.5s all';
+        offset += deleteNotDigits(width);
+
+        slidesField.style.transition = '0.3s transform';
         slidesField.style.transform = `translateX(-${offset}px)`;
-
-        dots.forEach(dot => dot.style.backgroundColor = '');
-        dots[slideIndex - 1].style.backgroundColor = '#000';
     };
 
     const moveToPrevSlide = () => {
-        offset -= deleteNotDigits(width);
+        if( slideIndex <= 0){
+            return;
+        }
         slideIndex--;
 
-        slidesField.style.transition = '0.5s all';
-        slidesField.style.transform = `translateX(-${offset}px)`;
+        offset -= deleteNotDigits(width);
 
-        dots.forEach(dot => dot.style.backgroundColor = '');
-        dots[slideIndex - 1].style.backgroundColor = '#000';
+        slidesField.style.transition = '0.3s transform';
+        slidesField.style.transform = `translateX(-${offset}px)`;
     };
+
+
 
     next.addEventListener('click', moveToNextSlide);
     prev.addEventListener('click', moveToPrevSlide);
@@ -138,9 +132,10 @@ function slider(){
 
             slidesField.style.transition = 'none';
             slidesField.style.transform = `translateX(-${offset}px)`;
-
         }
 
+        dots.forEach(dot => dot.style.backgroundColor = '');
+        dots[slideIndex - 1].style.backgroundColor = '#000';
     });
 
     dots.forEach(dot => {
@@ -150,7 +145,7 @@ function slider(){
             slideIndex = slideTo;
             offset = deleteNotDigits(width) * (slideIndex);
 
-            slidesField.style.transition = '0.5s all';
+            slidesField.style.transition = '0.3s all';
             slidesField.style.transform = `translateX(-${offset}px)`;
 
             dots.forEach(dot => dot.style.backgroundColor = '');

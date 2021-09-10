@@ -360,6 +360,16 @@ a {
     right: 2rem;
 }
 
+.slider__dots {
+    position: absolute;
+    right: 0;
+    bottom: 10rem;
+    left: 0;
+    z-index: 15;
+    display: flex;
+    justify-content: center;
+}
+
 .slider-item {
     content: "";
     display: block;
@@ -370,7 +380,7 @@ a {
     margin-right: 1.3rem;
     cursor: pointer;
 
-    transition: background-color linear 0.5s;
+    transition: background-color linear 0.1s;
 }
 
 .slider-item:last-child {
@@ -611,12 +621,12 @@ a {
 
 .clients {
     position: relative;
+    padding-bottom: 20rem;
 }
 
 .clients__item {
     display: flex;
     justify-content: space-between;
-    /* height: 13rem; */
     margin-bottom: 8rem;
 }
 
@@ -658,7 +668,6 @@ a {
 .clients__photos {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 8rem;
 }
 
 .clients__photo {
